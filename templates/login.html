@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+body{
+  font-family: "Helvetica", Sans-Serif;
+  background-image: url({% static 'images/about.jpg'%});
+}
+    * {box-sizing: border-box;}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: dodgerblue;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+
+
+
+
+</style>
+<body>
+<form action="" method="post">
+     {% csrf_token %}
+
+
+
+<h2 align="center">Login</h2>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field"type="text" name="username" placeholder="username">
+  </div>
+
+
+   <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" name="password" placeholder="password" >
+  </div>
+
+
+
+  <button type="submit" class="btn">Login</button>
+
+
+
+
+</form>
+<div>
+    {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+
+</ul>
+    {% endif %}
+</div>
+
+</body>
+</html>
